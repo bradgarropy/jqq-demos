@@ -34,7 +34,53 @@
 2. Click `New` and select `Task service`
 3. Enter `emailer` for the `Service name`
 4. Click `Create`
-5. // TODO
+
+## Query The Database
+
+1. Click on `Database` and drag `Create Object Iterator` onto the canvas
+2. Connect the `trigger` from the `Start` node to the `inputObject` of the `Create Object Iterator` node
+3. Select `users` for the `Retrieved object model`
+4. Enter the following query for the `Select query`
+
+```
+DATETOSTRING(this.birthday,"%m/%d/%Y") == DATETOSTRING(NOW(),"%m/%d/%Y")
+```
+
+## Iterate Over Users
+
+1. Click on `Database` and drag `Iterate to Next Object` onto the canvas
+2. Connect the `iterator` from the `Create Object Iterator` node to the `iterator` of the `Iterate to Next Object` node
+3. Connect the `iterator` from the `Create Object Iterator` node to the `trigger` of the `Iterate to Next Object` node
+
+## Create Emails
+
+1. Click on `Email` and drag `Create Email Message` onto the canvas
+2. Connect `found` from the `Iterate to Next Object` node to the `input` of the `Create Email Message` node
+3. Enter `birthday-emailer@gmail.com` for the `From email`
+4. Enter `Birthday Emailer` for the `From name`
+5. Enter `input.email` for `To`
+6. Enter `CONCAT("Happy Birthday, ", input.name)` for the `Subject`
+7. Enter the following text for the `Text message`
+
+```
+Happy Birthday!
+
+We wish you well in your next year.
+
+Regards,
+Birthday Emailer
+```
+
+## Send Emails
+
+1. Click on `Email` and drag `Send Email Message` onto the canvas
+2. Connect the `emailMessage` from the `Create Email Message` node to the `emailMessage` of the `Send Email Message` node
+3. Connect `success` from the `Send Email Message` node to the `trigger` of the `Iterate to Next Object` node
+
+## Finish
+
+1. Click on `Response` and drag `Finish Successfully` onto the canvas
+2. Connect `notFound` from the `Iterate to Next Object` node to the `trigger` of the `Finish Successfully` node
 
 ![task-service][task-service]
 
