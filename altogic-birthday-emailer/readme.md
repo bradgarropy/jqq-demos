@@ -43,7 +43,7 @@
 4. Enter the following query for the `Select query`
 
 ```
-DATETOSTRING(this.birthday,"%m/%d/%Y") == DATETOSTRING(NOW(),"%m/%d/%Y")
+DATETOSTRING(this.birthday,"%m/%d") == DATETOSTRING(NOW(),"%m/%d")
 ```
 
 ## Iterate Over Users
@@ -84,16 +84,6 @@ Birthday Emailer
 
 ![task-service][task-service]
 
-# Test Task Service
-
-1. Navigate to the [Development](https://tester.altogic.com/users/63939a921bfc9782cc125f5b/apps/63939b17fc196d5d5833602b/envs/63939b17fc196d5d5833603a/tests) environment. Click on the `cloud` in the top right, then click on `Tester`
-2. Click on the `Tasks` tab
-3. Click on the `checker` task
-4. Click `Run task`
-5. Observe the output
-
-![tester][tester]
-
 # Create Task
 
 1. Navigate to your [tasks](https://designer.altogic.com/users/63939a921bfc9782cc125f5b/apps/63939b17fc196d5d5833602b/snaps/63939b17fc196d5d5833602c/tasks)
@@ -104,6 +94,16 @@ Birthday Emailer
 6. Click `Create`
 
 ![task][task]
+
+# Test The Application
+
+1. Navigate to the [Development](https://tester.altogic.com/users/63939a921bfc9782cc125f5b/apps/63939b17fc196d5d5833602b/envs/63939b17fc196d5d5833603a/tests) environment. Click on the `cloud` in the top right, then click on `Tester`
+2. Click on the `Tasks` tab
+3. Click on the `checker` task
+4. Click `Run task`
+5. Observe the output
+
+![tester][tester]
 
 [users-model]: images/users-model.png
 [users]: images/users.png
