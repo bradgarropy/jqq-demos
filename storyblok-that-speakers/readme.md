@@ -220,10 +220,15 @@ module.exports = {
 <slot />
 ```
 
-# Render Speakers
+# Code The Frontend
 
-1.
+Relevant files are:
 
+```text
+src/lib/Speaker.svelte
+src/routes/speakers/+page.svelte
+src/routes/speakers/+page.ts
+```
 
 [create-space]: images/create-space.png
 [speakers-block]: images/speakers-block.png

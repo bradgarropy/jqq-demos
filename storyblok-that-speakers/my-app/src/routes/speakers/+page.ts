@@ -14,5 +14,21 @@ export const load: PageLoad = async () => {
 	const response = await storyblokApi.get('cdn/stories/speakers', { version: 'draft' });
 	const { speakers } = response.data.story.content;
 
-	return { speakers };
+	const thatConference = speakers.reduce(
+		(acc: any, curr: any) => {
+			if (curr.keynote) {
+				acc.keynoteSpeakers.push(curr);
+			} else {
+				acc.speakers.push(curr);
+			}
+
+			return acc;
+		},
+		{
+			keynoteSpeakers: [],
+			speakers: []
+		}
+	);
+
+	return thatConference;
 };
