@@ -159,6 +159,72 @@ export const load: PageLoad = async () => {
 
 5. Navigate to `http://localhost:5173/speakers`
 
+# Install Tailwind
+
+1. Run the following commands.
+
+```shell
+cd my-app
+npm install -D tailwindcss postcss autoprefixer svelte-preprocess
+npx tailwindcss init tailwind.config.cjs -p
+```
+
+2. Modify `svelte.config.js` to include the `postcss` preprocessor.
+
+```javascript
+import adapter from '@sveltejs/adapter-auto';
+import { vitePreprocess } from '@sveltejs/kit/vite';
+import preprocess from 'svelte-preprocess';
+
+/** @type {import('@sveltejs/kit').Config} */
+
+const config = {
+	preprocess: [preprocess({ postcss: true }), vitePreprocess()],
+
+	kit: {
+		adapter: adapter()
+	}
+};
+
+export default config;
+```
+
+3. Modify `tailwind.config.cjs` to include `content`.
+
+```javascript
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+	content: ['./src/**/*.{html,js,svelte,ts}'],
+	theme: {
+		extend: {}
+	},
+	plugins: []
+};
+```
+
+4. Create `src/app.css` with the following content.
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+5. Create `src/routes/+layout.svelte` with the following content.
+
+```svelte
+<script>
+    import "../app.css";
+</script>
+
+<slot />
+```
+
+# Render Speakers
+
+1.
+
+
 [create-space]: images/create-space.png
 [speakers-block]: images/speakers-block.png
 [speaker-block]: images/speaker-block.png
