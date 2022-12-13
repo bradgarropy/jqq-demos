@@ -100,10 +100,70 @@
 9. Run `npm install`
 10. Run `npm run dev`
 
+![init sveltekit][init-sveltekit]
+![start sveltekit][start-sveltekit]
+
+# Create A Speakers Page
+
+1. Create `my-app/src/routes/speakers/+page.svelte`
+2. Add the following contents
+
+```svelte
+<script lang="ts">
+    console.log("speakers")
+</script>
+
+<h1>speakers</h1>
+```
+
+3. Navigate to `http://localhost:5173/speakers`
+
+# Load Storyblok Data
+
+1. Run `npm install @storyblok/svelte`
+2. Create `my-app/src/routes/speakers/+page.ts`
+3. Add the following contents.
+
+```typescript
+import type { PageLoad } from './$types';
+import { apiPlugin, storyblokInit, useStoryblokApi } from '@storyblok/svelte';
+
+export const load: PageLoad = async () => {
+	storyblokInit({
+		accessToken: 'ePrNdxRZK5ZxrRRrbZMxYgtt',
+		use: [apiPlugin],
+		apiOptions: {
+			region: 'us'
+		}
+	});
+
+	const storyblokApi = useStoryblokApi();
+	const response = await storyblokApi.get('cdn/stories/speakers', { version: 'draft' });
+	const { speakers } = response.data.story.content;
+
+	return { speakers };
+};
+```
+
+4. Update `my-app/src/routes/speakers/+page.svelte` with the following contents
+
+```svelte
+<script lang="ts">
+    import type {PageData} from "./$types"
+    export let data: PageData;
+</script>
+
+<h1>speakers</h1>
+<pre>{JSON.stringify(data, null, 2)}</pre>
+```
+
+5. Navigate to `http://localhost:5173/speakers`
+
 [create-space]: images/create-space.png
 [speakers-block]: images/speakers-block.png
 [speaker-block]: images/speaker-block.png
 [speakers-story]: images/speakers-story.png
 [add-speaker-block]: images/add-speaker-block.png
 [add-speaker-block-data]: images/add-speaker-block-data.png
-
+[init-sveltekit]: images/init-sveltekit.png
+[start-sveltekit]: images/start-sveltekit.png
