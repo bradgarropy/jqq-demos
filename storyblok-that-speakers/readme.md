@@ -246,6 +246,8 @@ src/routes/speakers/+page.svelte
 src/routes/speakers/+page.ts
 ```
 
+![frontend][frontend]
+
 # Visual Editing
 
 1. Run `npm install -D vite-plugin-mkcert`
@@ -272,6 +274,8 @@ export default config;
 6. Enter `https://localhost:5173/` for `Location`
 7. Modify a `speaker` and what the website refresh with the latest data
 
+![visual editor][visual-editor]
+
 [create-space]: images/create-space.png
 [speakers-block]: images/speakers-block.png
 [speaker-block]: images/speaker-block.png
@@ -280,3 +284,5 @@ export default config;
 [add-speaker-block-data]: images/add-speaker-block-data.png
 [init-sveltekit]: images/init-sveltekit.png
 [start-sveltekit]: images/start-sveltekit.png
+[frontend]: images/frontend.png
+[visual-editor]: images/visual-editor.png
