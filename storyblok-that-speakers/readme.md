@@ -246,6 +246,32 @@ src/routes/speakers/+page.svelte
 src/routes/speakers/+page.ts
 ```
 
+# Visual Editing
+
+1. Run `npm install -D vite-plugin-mkcert`
+2. Modify `vite.config.js` to include secure settings.
+
+```javascript
+import { sveltekit } from '@sveltejs/kit/vite';
+import mkcert from 'vite-plugin-mkcert';
+
+/** @type {import('vite').UserConfig} */
+const config = {
+	plugins: [sveltekit(), mkcert()],
+	server: {
+		https: true
+	}
+};
+
+export default config;
+```
+
+3. Navigate to the `speakers` story.
+4. Click `Change URL`
+5. Click `Add or change preview URLs`
+6. Enter `https://localhost:5173/` for `Location`
+7. Modify a `speaker` and what the website refresh with the latest data
+
 [create-space]: images/create-space.png
 [speakers-block]: images/speakers-block.png
 [speaker-block]: images/speaker-block.png
