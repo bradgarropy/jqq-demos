@@ -39,6 +39,58 @@
 
 ![add resolutions][add-resolutions]
 
+# Initialize Remix App
+
+1. Run `npx create-remix@latest`
+2. Enter `./my-remix-app`
+3. Select `Just the basics`
+4. Select `Remix App Server`
+5. Select `TypeScript`
+6. Enter `Y`
+
+![initializeremix][initialize-remix]
+
+# Configure Tailwind
+
+1. Run the following commands.
+
+```text
+npm install -D tailwindcss postcss autoprefixer concurrently
+npx tailwindcss init
+```
+
+2. Modify the `tailwind.config.js` content field to include `./app/**/*.{js,ts,jsx,tsx}`
+3. Add the following `scripts` to your `package.json`
+
+```json
+"build": "npm run build:css && remix build",
+"build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
+"dev": "concurrently \"npm run dev:css\" \"remix dev\"",
+"dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
+```
+
+4. Create `styles/app.css` and add the following content.
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+5. Add the following lines to `app/root.tsx`.
+
+```typescript
+import styles from "./styles/app.css"
+
+export function links() {
+  return [{ rel: "stylesheet", href: styles }]
+}
+```
+
+![configure tailwind][configure-tailwind]
+
 [create-database]: images/create-database.png
 [define-schema]: images/define-schema.png
 [add-resolutions]: images/add-resolutions.png
+[initialize-remix]: images/initialize-remix.png
+[configure-tailwind]: images/configure-tailwind.png
