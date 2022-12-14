@@ -87,7 +87,13 @@ export function links() {
 }
 ```
 
+6. Add `app/styles/app.css` to `.gitignore`
+
 ![configure tailwind][configure-tailwind]
+
+/resolutions
+/resolutions/:year
+/resolutions/:id
 
 [create-database]: images/create-database.png
 [define-schema]: images/define-schema.png
