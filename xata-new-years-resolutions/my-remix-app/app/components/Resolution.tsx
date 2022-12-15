@@ -15,7 +15,7 @@ const Resolution: FC<ResolutionProps> = ({resolution}) => {
 
     return (
         <>
-            <Link className="font-bold text-xl tabular-nums" to={`/resolutions/${resolution.year}`}>{resolution.year}</Link>
+            <Link className="font-bold text-xl tabular-nums" to={`/resolutions?year=${resolution.year}`}>{resolution.year}</Link>
 
             <Form method="post" onChange={handleChange} className="leading-[0]">
                 <input type="checkbox" name="isCompleted" id="isCompleted" checked={resolution.isCompleted} readOnly className="w-5 h-5 cursor-pointer"/>
