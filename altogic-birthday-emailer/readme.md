@@ -1,3 +1,7 @@
+[📺 VIDEO][video]
+
+---
+
 # App Creation
 
 1. Navigate to your [dashboard](https://designer.altogic.com/users/63939a921bfc9782cc125f5b/apps)
@@ -105,6 +109,7 @@ Birthday Emailer
 
 ![tester][tester]
 
+[video]: https://www.youtube.com/watch?v=0xP6diaoaZU
 [users-model]: images/users-model.png
 [users]: images/users.png
 [task-service]: images/task-service.png
