@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://bradgarropy-s-workspace-8eg8mm.us-east-1.xata.sh/db/new-years-resolutions",
+  "codegen": {
+    "output": "utils/xata.ts"
+  }
+}
