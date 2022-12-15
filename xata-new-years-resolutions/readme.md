@@ -91,12 +91,24 @@ export function links() {
 
 ![configure tailwind][configure-tailwind]
 
-/resolutions
-/resolutions/:year
-/resolutions/:id
+# Initialize Xata
+
+1. Run `npm install -g @xata.io/cli`
+2. Run `xata auth login`
+3. Select `Create a new API key in browser`
+4. Enter `new-years-resolutions` for `name`
+5. Click `Create API key`
+6. Run `xata init`
+7. Select `new-years-resolutions` for `database`
+8. Select `Generate TypeScript code` for `code generation`
+9. Enter `utils/xata.ts` for `output file`
+10. Select `<None>` for `development branch`
+
+![initialize xata][initialize-xata]
 
 [create-database]: images/create-database.png
 [define-schema]: images/define-schema.png
 [add-resolutions]: images/add-resolutions.png
 [initialize-remix]: images/initialize-remix.png
 [configure-tailwind]: images/configure-tailwind.png
+[initialize-xata]: images/initialize-xata.png
