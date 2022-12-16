@@ -27,6 +27,17 @@
 16. Check `Not null`
 17. Click `Create column`
 
+The data model will look like this.
+
+```typescript
+{
+  "id": "rec_abcdefg",
+  "year": 2023,
+  "resolution": "practice spanish every day",
+  "isCompleted": false,
+}
+```
+
 ![define schema][define-schema]
 
 # Add Resolutions
@@ -103,6 +114,8 @@ export function links() {
 8. Select `Generate TypeScript code` for `code generation`
 9. Enter `utils/xata.ts` for `output file`
 10. Select `<None>` for `development branch`
+
+The `xata init` command generates your `utils/xata.ts` file. This contains your `xata` client and the types for all of your data models. If you make changes to the database schema in the future, run the `xata codegen` command to generate a new `xata.ts` file.
 
 ![initialize xata][initialize-xata]
 
