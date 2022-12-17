@@ -7,7 +7,7 @@
 
 ![create database][create-database]
 
-# Define Schema
+# Define Resolutions Schema
 
 1. Click `Start from scratch`
 2. Enter `resolutions` for `table name`
@@ -118,6 +118,24 @@ export function links() {
 The `xata init` command generates your `utils/xata.ts` file. This contains your `xata` client and the types for all of your data models. If you make changes to the database schema in the future, run the `xata codegen` command to generate a new `xata.ts` file.
 
 ![initialize xata][initialize-xata]
+
+# Create Users Table
+
+1. Navigate to `new-years-resolutions` database
+2. Click `Add a table` and select `Add an empty table`
+3. Enter `users` for `table name`
+4. Click `+` and select `Email`
+5. Enter `email` for `Column name`
+6. Check `Unique`
+7. Click `Create column`
+4. Click `+` and select `String`
+5. Enter `password` for `Column name`
+6. Click `Create column`
+7. Run `xata codegen`
+
+# Add Authentication
+1. Run `npm install remix-auth remix-auth-form`
+
 
 [create-database]: images/create-database.png
 [define-schema]: images/define-schema.png
