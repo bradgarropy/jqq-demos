@@ -23,6 +23,14 @@ const tables = [
         notNull: true,
         defaultValue: "false",
       },
+      { name: "user", type: "link", link: { table: "users" } },
+    ],
+  },
+  {
+    name: "users",
+    columns: [
+      { name: "email", type: "email", unique: true },
+      { name: "password", type: "string" },
     ],
   },
 ] as const;
@@ -33,8 +41,12 @@ export type InferredTypes = SchemaInference<SchemaTables>;
 export type Resolutions = InferredTypes["resolutions"];
 export type ResolutionsRecord = Resolutions & XataRecord;
 
+export type Users = InferredTypes["users"];
+export type UsersRecord = Users & XataRecord;
+
 export type DatabaseSchema = {
   resolutions: ResolutionsRecord;
+  users: UsersRecord;
 };
 
 const DatabaseClient = buildClient();
