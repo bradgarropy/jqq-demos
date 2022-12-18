@@ -117,6 +117,14 @@ export function links() {
 
 The `xata init` command generates your `utils/xata.ts` file. This contains your `xata` client and the types for all of your data models. If you make changes to the database schema in the future, run the `xata codegen` command to generate a new `xata.ts` file.
 
+# Implement Application
+
+Write everything needed to create the unauthenticated application. This includes the following files.
+
+- `app/components/Resolution.tsx`
+- `app/components/NewResolution.tsx`
+- `app/routes/resolutions.tsx`
+
 ![initialize xata][initialize-xata]
 
 # Create Users Table
@@ -133,9 +141,51 @@ The `xata init` command generates your `utils/xata.ts` file. This contains your 
 6. Click `Create column`
 7. Run `xata codegen`
 
-# Add Authentication
-1. Run `npm install remix-auth remix-auth-form`
+# Modify Resolutions Schema
 
+1. Navigate to `new-years-resolutions` database
+2. Click `resolutions` table
+3. Click `+` and select `Link to another table`
+4. Enter `user` for `Column name`
+5. Select `users` for `Table to link records from`
+6. Click `Create column`
+
+# User Signup
+
+1. Run `npm install remix-auth remix-auth-form`
+2. Add `SESSION_SECRET` to `.env` file
+3. Create `app/utils/session.server.ts` with the following content.
+
+```typescript
+import {createCookieSessionStorage} from "@remix-run/node"
+
+const sessionStorage = createCookieSessionStorage({
+    cookie: {
+        name: "_session",
+        sameSite: "lax",
+        path: "/",
+        httpOnly: true,
+        secrets: [process.env.SESSION_SECRET],
+        secure: process.env.NODE_ENV === "production",
+    },
+})
+
+export {sessionStorage}
+```
+
+4. Create `app/utils/auth.server.ts` and add content
+5. Create `app/routes/signup.tsx` and add content
+
+# User Login & Logout
+
+1. Create `app/routes/login.tsx` and add content
+2. Modify `app/routes/resolutions.tsx` to add `logout` button and action
+
+# Modify Resolutions
+
+1. Change `loader` to change for authentication
+2. Change `action` to check for authentication
+3. Change `add` action to include `user`
 
 [create-database]: images/create-database.png
 [define-schema]: images/define-schema.png
