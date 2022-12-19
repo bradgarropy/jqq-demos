@@ -7,7 +7,7 @@
         <span class="absolute -top-4 rounded-full bg-red-500 px-10 text-xl text-white font-semibold uppercase">keynote</span>
     {/if}
 
-    <img class={`mb-4 rounded-full ${speaker.keynote ? "w-56 h-56" : "w-32 h-32"}`} src={speaker.image.filename} alt={speaker.name}>
+    <img class={`mb-4 rounded-full object-cover ${speaker.keynote ? "w-56 h-56" : "w-32 h-32"}`} src={speaker.image.filename} alt={speaker.name}>
     <h2 class={`font-bold ${speaker.keynote ? "text-xl" : "text-md"}`}>{speaker.name}</h2>
     <span class={speaker.keynote ? "text-md" : "text-sm"}>{speaker.title}</span>
     <span class={speaker.keynote ? "text-md" : "text-sm"}>{speaker.company}</span>
