@@ -4,7 +4,7 @@
     export let data: PageData;
 </script>
 
-<section class="p-10 bg-blue-900 h-screen">
+<section class="p-10 bg-blue-900 min-h-screen">
     <div class="mx-auto max-w-screen-xl">
         <h1 class="text-3xl font-extrabold text-white">Featured Speakers</h1>
 
@@ -14,7 +14,7 @@
             {/each}
         </div>
 
-        <div class="grid grid-cols-5 gap-6 mt-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {#each data.speakers as speaker}
                 <Speaker speaker={speaker}/>
             {/each}
