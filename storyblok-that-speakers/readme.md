@@ -1,3 +1,7 @@
+[📺 VIDEO][video]
+
+---
+
 # Create Storyblok Space
 
 1. Click `Add Space`
@@ -276,6 +280,7 @@ export default config;
 
 ![visual editor][visual-editor]
 
+[video]: https://youtu.be/_YIU5fgWDb0
 [create-space]: images/create-space.png
 [speakers-block]: images/speakers-block.png
 [speaker-block]: images/speaker-block.png
