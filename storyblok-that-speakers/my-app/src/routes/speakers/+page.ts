@@ -3,7 +3,7 @@ import { apiPlugin, storyblokInit, useStoryblokApi } from '@storyblok/svelte';
 
 export const load: PageLoad = async () => {
 	storyblokInit({
-		accessToken: 'ePrNdxRZK5ZxrRRrbZMxYgtt',
+		accessToken: 'iCJIB8K8LFIbL6OJDObZgwtt',
 		use: [apiPlugin],
 		apiOptions: {
 			region: 'us'
