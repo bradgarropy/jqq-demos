@@ -1,7 +1,8 @@
-import {Form} from "@remix-run/react"
+import {Form, useLoaderData} from "@remix-run/react"
 
 const NewResolution = () => {
     const currentYear = new Date().getFullYear()
+    const {year} = useLoaderData()
 
     return (
         <Form
@@ -16,6 +17,7 @@ const NewResolution = () => {
                 name="year"
                 id="year"
                 className="border-2 rounded-md mr-8 border-gray-600 px-3 py-1 h-9"
+                defaultValue={year}
             >
                 {Array.from(Array(10).keys()).map(index => {
                     const year = currentYear + index
