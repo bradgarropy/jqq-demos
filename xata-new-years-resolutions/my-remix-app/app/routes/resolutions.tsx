@@ -12,13 +12,14 @@ const loader = async ({request}: LoaderArgs) => {
 
     const xata = new XataClient()
     const url = new URL(request.url)
-    const year = Number(url.searchParams.get("year"))
+    const yearFilter = Number(url.searchParams.get("year"))
+    const year = yearFilter || new Date().getFullYear()
 
     let resolutions
 
-    if (year) {
+    if (yearFilter) {
         resolutions = await xata.db.resolutions
-            .filter({"user.id": user.id, year})
+            .filter({"user.id": user.id, "year": yearFilter})
             .sort("year", "desc")
             .getMany()
     } else {
