@@ -11,12 +11,10 @@ const loader = async ({request}: LoaderArgs) => {
 }
 
 const action: ActionFunction = async ({request}) => {
-    const user = await authenticator.authenticate("form", request, {
+    return authenticator.authenticate("form", request, {
         successRedirect: "/resolutions",
         failureRedirect: "/login",
     })
-
-    return user
 }
 
 const LoginPage = () => {
