@@ -2,7 +2,7 @@ import type {ActionFunction, LoaderArgs} from "@remix-run/node"
 import {Form, Link} from "@remix-run/react"
 import {authenticator} from "utils/auth.server"
 import bcrypt from "bcryptjs"
-import {XataClient} from "utils/xata"
+import {getXataClient, XataClient} from "utils/xata"
 
 const loader = async ({request}: LoaderArgs) => {
     const user = await authenticator.isAuthenticated(request, {
@@ -20,7 +20,7 @@ const action: ActionFunction = async ({request}) => {
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(password, salt)
 
-    const xata = new XataClient()
+    const xata = getXataClient()
     const user = await xata.db.users.create({email, password: hashedPassword})
     console.log(user)
 
