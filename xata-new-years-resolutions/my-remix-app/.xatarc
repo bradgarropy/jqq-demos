@@ -1,5 +1,5 @@
 {
-  "databaseURL": "https://bradgarropy-s-workspace-8eg8mm.us-east-1.xata.sh/db/new-years-resolutions",
+  "databaseURL": "https://James-Q-Quick-s-workspace-l5kbra.us-east-1.xata.sh/db/resolutions",
   "codegen": {
     "output": "utils/xata.ts"
   }

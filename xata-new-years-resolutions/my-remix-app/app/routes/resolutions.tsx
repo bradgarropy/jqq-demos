@@ -1,7 +1,7 @@
 import type {ActionFunction, LoaderArgs} from "@remix-run/node"
 import {Form, Link, useLoaderData} from "@remix-run/react"
 import {authenticator} from "utils/auth.server"
-import {XataClient} from "utils/xata"
+import {getXataClient, XataClient} from "utils/xata"
 import {NewResolution} from "~/components/NewResolution"
 import {Resolution} from "~/components/Resolution"
 
@@ -10,7 +10,7 @@ const loader = async ({request}: LoaderArgs) => {
         failureRedirect: "/login",
     })
 
-    const xata = new XataClient()
+    const xata = getXataClient()
     const url = new URL(request.url)
     const yearFilter = Number(url.searchParams.get("year"))
     const year = yearFilter || new Date().getFullYear()
@@ -37,7 +37,7 @@ const action: ActionFunction = async ({request}) => {
         failureRedirect: "/login",
     })
 
-    const xata = new XataClient()
+    const xata = getXataClient()
     const form = await request.formData()
     const action = form.get("action")
 
