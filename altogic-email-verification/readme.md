@@ -68,3 +68,48 @@
 21. Check `Required`
 22. Enter `false` for `Default value expression`
 23. Click `Create`
+
+# Create Sign Up Endpoint
+
+1. Click `Endpoints`
+2. Click `New`
+3. Select `Endpoint`
+4. Enter `auth-signup` for `Endpoint name`
+5. Select `POST` for `Method`
+6. Enter `/auth/signup` for `Path`
+7. Select `Add new no-code service` for `Routed service`
+8. Enter `signup` for `Service name`
+9. Click `Create`
+10. Click `Create`
+11. Click `Services`
+12. Click `signup`
+13. Drag `Return Success Response` to the canvas
+14. Hook it up to `Start`
+15. Click `Add key-value pair`
+16. Enter `"message"` for `Key`
+17. Enter `"signup success"` for `Value`
+
+# Create Verify Endpoint
+
+1. Click `Endpoints`
+2. Click `New`
+3. Select `Endpoint`
+4. Enter `auth-verify` for `Endpoint name`
+5. Select `POST` for `Method`
+6. Enter `/auth/verify` for `Path`
+7. Select `Add new no-code service` for `Routed service`
+8. Enter `verify` for `Service name`
+9. Click `Create`
+10. Click `Create`
+11. Click `Services`
+12. Click `verify`
+13. Drag `Return Success Response` to the canvas
+14. Hook it up to `Start`
+15. Click `Add key-value pair`
+16. Enter `"message"` for `Key`
+17. Enter `"verify success"` for `Value`
+
+# Integrate Altogic CLI
+
+1. Run `npm install altogic`
+2. 
