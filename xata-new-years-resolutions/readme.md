@@ -1,3 +1,7 @@
+[📺 VIDEO][video]
+
+---
+
 # Create Database
 
 1. Click `Add a database`
@@ -193,3 +197,4 @@ export {sessionStorage}
 [initialize-remix]: images/initialize-remix.png
 [configure-tailwind]: images/configure-tailwind.png
 [initialize-xata]: images/initialize-xata.png
+[video]: https://youtu.be/mTA8XBhzv5U
