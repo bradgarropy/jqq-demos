@@ -26,9 +26,9 @@
 
 # Create Email Pages
 
-1. Create a `src/routes/success/+page.svelte` file
+1. Create a `src/routes/signup/success/+page.svelte` file
 2. Add content
-3. Create a `src/routes/failure/+page.svelte` file
+3. Create a `src/routes/signup/failure/+page.svelte` file
 4. Add content.
 
 # Create Altogic App
@@ -83,11 +83,33 @@
 10. Click `Create`
 11. Click `Services`
 12. Click `signup`
-13. Drag `Return Success Response` to the canvas
-14. Hook it up to `Start`
-15. Click `Add key-value pair`
-16. Enter `"message"` for `Key`
-17. Enter `"signup success"` for `Value`
+13. Click `Start`
+14. Select `Custom model` for `Request body structure`
+15. Click `Add field`
+16. Select `Text field` -> `Email` for `field`
+17. Enter `email` for `Name` 
+18. Drag `Return Success Response` to the canvas
+19. Hook it up to `Start`
+20. Click `Add key-value pair`
+21. Enter `"message"` for `Key`
+22. Enter `"concat("successfully signed up ", params.body.email)"` for `Value`
+
+# Integrate Altogic CLI
+
+1. Run `npm install altogic`
+2. Create a `.env` file
+3. Add `ALTOGIC_ENV_URL` variable
+4. Add `ALTOGIC_CLIENT_KEY` variable
+5. Create `src/altogic.ts`
+
+```typescript
+import { createClient } from 'altogic';
+import { ALTOGIC_ENV_URL, ALTOGIC_CLIENT_KEY } from '$env/static/private';
+
+const altogic = createClient(ALTOGIC_ENV_URL, ALTOGIC_CLIENT_KEY);
+
+export { altogic };
+```
 
 # Create Verify Endpoint
 
@@ -108,8 +130,3 @@
 15. Click `Add key-value pair`
 16. Enter `"message"` for `Key`
 17. Enter `"verify success"` for `Value`
-
-# Integrate Altogic CLI
-
-1. Run `npm install altogic`
-2. 

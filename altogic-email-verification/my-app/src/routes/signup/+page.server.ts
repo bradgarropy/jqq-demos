@@ -1,14 +1,20 @@
+import { redirect } from '@sveltejs/kit';
+import crypto from 'node:crypto';
+
 import type { Actions, RequestEvent } from './$types';
 import { altogic } from '../../altogic';
 
 const actions: Actions = {
 	default: async (event: RequestEvent) => {
 		const formData = await event.request.formData();
-		const email = formData.get('email');
-		console.log(email);
 
-		const res = await altogic.endpoint.post('/auth/signup', { email });
-		console.log(res);
+		await altogic.endpoint.post('/auth/signup', {
+			email: formData.get('email'),
+			token: crypto.randomUUID(),
+			verified: false
+		});
+
+		throw redirect(302, '/signup/verify');
 	}
 };
 
