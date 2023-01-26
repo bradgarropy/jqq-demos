@@ -1,6 +1,6 @@
 import { redirect } from '@sveltejs/kit';
 import { altogic } from '../../../altogic';
-import type { PageServerLoad } from '../../auth/verify/$types';
+import type { PageServerLoad } from './$types';
 
 const load: PageServerLoad = async ({ url }) => {
 	const token = url.searchParams.get('token');

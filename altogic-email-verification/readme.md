@@ -19,10 +19,14 @@
 1. Create a `src/routes/signup/+page.svelte` file
 2. Add content
 
-# Create Sign Up Action
+![signup page][signup-page]
 
-1. Create a `src/routes/signup/+page.server.ts` file
+# Create Verify Page
+
+1. Create a `src/routes/signup/verify/+page.svelte` file
 2. Add content
+
+![verify page][verify-page]
 
 # Create Email Pages
 
@@ -30,6 +34,9 @@
 2. Add content
 3. Create a `src/routes/signup/failure/+page.svelte` file
 4. Add content.
+
+![success page][success-page]
+![failure page][failure-page]
 
 # Create Altogic App
 
@@ -69,6 +76,24 @@
 22. Enter `false` for `Default value expression`
 23. Click `Create`
 
+![user model][user-model]
+
+# Create Email Queue
+
+1. Click `Message queues`
+2. Click `New`
+3. Select `Queue`
+4. Enter `verification-emails` for `Queue name`
+5. Select `Add new no-code service` for `Routed service`
+6. Enter `send-verification-email` for `Service name`
+7. Click `Create`
+8. Click `Create`
+9. Click `Services`
+10. Click `send-verification-email`
+11. Add no-code logic
+
+![send verification email service][send-verification-email-service]
+
 # Create Sign Up Endpoint
 
 1. Click `Endpoints`
@@ -83,16 +108,9 @@
 10. Click `Create`
 11. Click `Services`
 12. Click `signup`
-13. Click `Start`
-14. Select `Custom model` for `Request body structure`
-15. Click `Add field`
-16. Select `Text field` -> `Email` for `field`
-17. Enter `email` for `Name` 
-18. Drag `Return Success Response` to the canvas
-19. Hook it up to `Start`
-20. Click `Add key-value pair`
-21. Enter `"message"` for `Key`
-22. Enter `"concat("successfully signed up ", params.body.email)"` for `Value`
+13. Add no-code logic
+
+![signup service][signup-service]
 
 # Integrate Altogic CLI
 
@@ -111,6 +129,11 @@ const altogic = createClient(ALTOGIC_ENV_URL, ALTOGIC_CLIENT_KEY);
 export { altogic };
 ```
 
+# Create Sign Up Action
+
+1. Create a `src/routes/signup/+page.server.ts` file
+2. Add content
+
 # Create Verify Endpoint
 
 1. Click `Endpoints`
@@ -125,8 +148,20 @@ export { altogic };
 10. Click `Create`
 11. Click `Services`
 12. Click `verify`
-13. Drag `Return Success Response` to the canvas
-14. Hook it up to `Start`
-15. Click `Add key-value pair`
-16. Enter `"message"` for `Key`
-17. Enter `"verify success"` for `Value`
+13. Add no-code logic
+
+![verify service][verify-service]
+
+# Create Verify Action
+
+1. Create a `src/routes/signup/verify/+page.server.ts` file
+2. Add content
+
+[signup-service]: images/signup-service.png
+[user-model]: images/user-model.png
+[verify-service]: images/verify-service.png
+[send-verification-email-service]: images/send-verification-email-service.png
+[signup-page]: images/signup-page.png
+[verify-page]: images/verify-page.png
+[success-page]: images/success-page.png
+[failure-page]: images/failure-page.png
